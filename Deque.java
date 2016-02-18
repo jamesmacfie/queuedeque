@@ -130,7 +130,7 @@ public class Deque<Item> implements Iterable<Item> {
      * @param item The item to add to the end of the deque
      */
     public void addLast(Item item) {
-        if (isEmpty()) {
+        if (item == null) {
             throw new NullPointerException("Woah, you can't add nothing");
         }
 
@@ -190,7 +190,7 @@ public class Deque<Item> implements Iterable<Item> {
      * @return The item that just got removed
      */
     public Item removeLast() {
-        if (last == null) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
 
@@ -222,23 +222,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        Deque<String> deq = new Deque<String>();
 
-        deq.addFirst("1");
-        deq.addFirst("2");
-        deq.addFirst("3");
-        deq.addFirst("4");
-        deq.addFirst("5");
-        deq.addLast("6");
-        deq.addLast("7");
-
-        Iterator<String> iterate = deq.iterator();
-
-        while(iterate.hasNext()) {
-            System.out.println(iterate.next());
-        }
-
-        System.out.println(deq.size());
     }
 
 }
