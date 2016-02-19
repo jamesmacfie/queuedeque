@@ -1,4 +1,3 @@
-import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Iterator;
@@ -66,13 +65,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         int idx = StdRandom.uniform(N);
 
         /**
-         * Interesting implementation here (well, I think so). We don't care about the total size of the array (ie, queue.length)
-         * but rather our internal reference to int N. Instead of totally removing the item, simply swap the random item for the
-         * item at the end of the array and then dereference that item.
+         * Interesting implementation here (well, I think so). We don't care about the total size of the array
+         * (ie, queue.length) but rather our internal reference to int N. Instead of totally removing the item, simply \
+         * swap the random item for theitem at the end of the array and then dereference that item.
          */
         Item itemToReturn = queue[idx];
         queue[idx] = queue[N - 1]; // Swap out the random item with one at the end of the array.
-        queue[N - 1]= null; // And then remove any reference to that item
+        queue[N - 1] = null; // And then remove any reference to that item
         N--;
 
         if (N > 0 && N <= queue.length / 4) {
@@ -93,7 +92,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             throw new NoSuchElementException();
         }
 
-        int idx= StdRandom.uniform(N);
+        int idx = StdRandom.uniform(N);
         return queue[idx];
     }
 
@@ -139,12 +138,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
              * In order to randomly move through the queue array without duplication, we create an array of random non-repeating
              * indexes and then each time we move to the next item we simply grab the item from the queue at the given index.
              */
-            for(int i = 0; i < iteratorQueue.length; i++) {
+            for (int i = 0; i < iteratorQueue.length; i++) {
                 iteratorQueue[i] = queue[i];
             }
 
             // Knuth shuffle :)
-            for(int i = 1; i < iteratorQueue.length; i++) {
+            for (int i = 1; i < iteratorQueue.length; i++) {
                 int swapIdx = StdRandom.uniform(i + 1);
 
                 Item tempItem = iteratorQueue[i];
@@ -185,7 +184,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
     }
 }
